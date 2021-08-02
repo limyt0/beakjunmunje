@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-//----------나중에 코드 복습 필요. 인터넷 보고 베낀거임.--------------
+//----------나중에 코드 복습 필요--------------
 public class SpeedAplusB {
 	
 	public static void main(String[] args) throws IOException{
