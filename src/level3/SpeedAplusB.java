@@ -25,7 +25,6 @@ public class SpeedAplusB {
 		}
 		
 		br.close();
-		
 		bw.flush();
 		bw.close();
 	}
