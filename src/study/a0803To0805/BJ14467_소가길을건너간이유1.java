@@ -8,7 +8,6 @@ public class BJ14467_소가길을건너간이유1 {
 	public static void main(String[] args) throws IOException {
 		
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
 		int N = Integer.parseInt(br.readLine());
 		StringTokenizer st;
@@ -28,9 +27,7 @@ public class BJ14467_소가길을건너간이유1 {
 			}
 			cow[num] = state;//n번째 소는 state 위치에 있다.
 		}
-		bw.write(cnt+"\n");
+		System.out.println(cnt+"\n");
 		br.close();
-		bw.flush();
-		bw.close();
 	}
 }
