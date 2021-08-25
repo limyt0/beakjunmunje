@@ -3,38 +3,47 @@ package study.a0805To0812;
 import java.io.*;
 import java.util.*;
 
-//수정 필요
+//
 public class BJ11725_트리의부모찾기 {
-	
+	static int[] parents;
+	static List<Integer>[] list;
+	static boolean[] visited;
+	static int N;
 	public static void main(String[] args) throws IOException {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringBuilder sb = new StringBuilder();
-		int N = Integer.parseInt(br.readLine());
 		
-		int [] node = new int[N+1];//index에 해당하는 부모를 담을 배열.
-		//node[1] = -1;//트리 노드 기본값 삽입. 이거 안주면 값 꼬임
-		for(int i =0; i<N-1; i++) { //N개중 1은 제외
-			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-			int parent = Integer.parseInt(st.nextToken());//부모값.
-			int idx = Integer.parseInt(st.nextToken());//인덱스
-			
-			if(idx == 1) {//1이 무조건 부모.
-				node[parent] = idx; 
-			}else if(parent == 1) {
-				node[idx] = parent; //1이 무조건 부모.2
-			}else if(node[idx] ==0) { //현재 값이 없으니 넣는 경우
-				node[idx] = parent;//인덱스가 0부터 시작하므로. N을 초과하지 않으려면 -1해야됨
-			}else {//0이 아닐 경우. 값이 이미 있으므로 노드가 뒤집힌 경우
-				node[parent] = idx;
-			}
+		N = Integer.parseInt(br.readLine());		
+		list = new List[N+1];// 인텍스 체크를 1부터 하기 위함.
+		parents = new int[N+1];//차례대로부모저장 
+		for(int i = 1; i<=N;i++) {
+			list[i] = new ArrayList<>();//
 		}
-		for(int i = 2; i<=N; i++) {//2번째(=idx-1)이므로 idx=1부터 시작.
-			sb.append(node[i]).append("\n");
+		visited = new boolean[N+1];
+		for(int i =0;i<N-1;i++) {//1은 제외하므로 N-1
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+			int a = Integer.parseInt(st.nextToken());//
+			int b = Integer.parseInt(st.nextToken());//
+			//트리 저장
+			list[a].add(b);
+			list[b].add(a);
+		}
+		dfs(1);
+		for(int i =2;i<=N;i++) {
+			sb.append(parents[i]).append("\n");
 		}
 		
 		System.out.println(sb);
 		br.close();
 	}
-
+	static void dfs(int p) { //
+		visited[p] = true;
+		for(int i : list[p]) {//i번째의 부모는 p
+			if(!visited[i]) {//방문 체크
+				parents[i] = p; //방문한적 없으면 지금 노드가 부모 노드가 됨. 부모노드를 먼저 방문하기 때문. 
+				dfs(i);
+			}
+		}
+	}
 }
