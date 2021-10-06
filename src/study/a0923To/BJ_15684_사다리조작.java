@@ -2,7 +2,7 @@ package study.a0923To;
 
 import java.io.*;
 import java.util.*;
-//https://leveloper.tistory.com/96 참고
+
 public class BJ_15684_사다리조작 {
 		static int N, M, H, result;
 		static int[][] arr;
@@ -12,9 +12,9 @@ public class BJ_15684_사다리조작 {
 		StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 		
 		
-		N = Integer.parseInt(st.nextToken());
-		M = Integer.parseInt(st.nextToken());
-		H = Integer.parseInt(st.nextToken());
+		N = Integer.parseInt(st.nextToken()); //세로선 수
+		M = Integer.parseInt(st.nextToken()); //가로선 수
+		H = Integer.parseInt(st.nextToken()); //세로선마다 가로선 놓을 수 있는 수
 		arr= new int[H+1][N+1]; //가로선 위치갯수, 세로선 수.
 		
 		int row, col;
@@ -34,7 +34,7 @@ public class BJ_15684_사다리조작 {
 		System.out.println((finish) ? result : -1);
 		br.close();
 	}
-	private static void dfs(int start, int cnt) { //조합
+	private static void dfs(int start, int cnt) { //
 		if(finish) return;
 		if(result == cnt) {
 			if(check()) finish = true;
@@ -46,7 +46,7 @@ public class BJ_15684_사다리조작 {
 					arr[i][j] = 1; //가로선 시작
 					arr[i][j+1] = 2;//가로선 끝
 					dfs(i, cnt + 1);//
-					arr[i][j] = arr[i][j+1] = 0; //다시 0으로 만듦??
+					arr[i][j] = arr[i][j+1] = 0; //다시 0으로 만듦
  				}
 			}
 		}
@@ -57,11 +57,13 @@ public class BJ_15684_사다리조작 {
 			for(int j = 0; j<H; j++) {
 				if(arr[row][col] == 1) col++; //왼쪽->오른쪽으로 이동
 				else if(arr[row][col] == 2) col--; //오른쪽->왼쪽으로 이동
-				row++; //아래로 이동
+				row++; //아래로 이동.. 세로선 i번 나와야 함.
 			}
-			if(col != i) return false;
+			if(col != i) return false; //끝까지 안 내려감
 		}
-		return true;
+		return true; //끝까지 내려감
 	}
 
 }
+
+//https://leveloper.tistory.com/96 참고
