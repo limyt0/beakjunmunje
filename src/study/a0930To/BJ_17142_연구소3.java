@@ -18,9 +18,9 @@ public class BJ_17142_연구소3 {
 
     static int N, M;
     static int[][] arr;
-    static int[] dr = {-1, 1, 0, 0}; //사방탐색용
+    static int[] dr = {-1, 1, 0, 0}; //사방, 바이러스가 상하좌우로 인접한 모든 빈 칸으로 동시에 복제
     static int[] dc = {0, 0, -1, 1};
-    static List<Virus> viruses = new ArrayList<>(); //바이러스 저장 .,.
+    static List<Virus> viruses = new ArrayList<>(); //바이러스 
     static Virus[] active; //활성 바이러스
     static int resultMinTime = Integer.MAX_VALUE; //구할 최소값
     static int originEmptySpace = 0; //바이러스 수 체크
@@ -51,9 +51,9 @@ public class BJ_17142_연구소3 {
         }
 
         // solution
-        if (originEmptySpace == 0) { // 빈공간 몇개? 0개 .
+        if (originEmptySpace == 0) { // 빈공간 몇개? 0개 ., 더이상 퍼뜨릴 필요 없는 경우
             System.out.println(0);
-        } else { // 바이러스 있으면 
+        } else { // 
             combi(0, 0); //
             System.out.println(resultMinTime == Integer.MAX_VALUE ? -1 : resultMinTime);
         }
@@ -77,13 +77,13 @@ public class BJ_17142_연구소3 {
 
     // BFS 로 바이러스를 퍼트린다
     static void spreadVirus(int emptySpace) { //빈칸 0 param
-        Queue<Virus> q = new LinkedList<>();
+        Queue<Virus> q = new LinkedList<>();// 
         boolean[][] infected = new boolean[N][N]; //감염 체크
 
         for (int i = 0; i < M; i++) {
             Virus virus = active[i]; // 활성화된 바이러스의 값을
             infected[virus.row][virus.col] = true;//true로?
-            q.add(virus); //queue에 활성화된 virus 넣음
+            q.add(virus); //q에 활성화된 virus 넣음
         }
 
         while (!q.isEmpty()) { //queue가 빌때까지
