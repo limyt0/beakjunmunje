@@ -2,7 +2,7 @@ package study.a1007To;
 
 import java.io.*;
 import java.util.*;
-
+//다른 풀이로 바꾸어야 할듯
 public class BJ_19236_청소년상어 {
 	static class Shark {
         int x, y, dir, eatSum;
@@ -13,7 +13,7 @@ public class BJ_19236_청소년상어 {
             this.x = x;
             this.y = y;
             this.dir = dir;
-            this.eatSum = eatSum;
+            this.eatSum = eatSum;//먹은 합
         }
     }
 
@@ -26,8 +26,8 @@ public class BJ_19236_청소년상어 {
         Fish(int x, int y, int id, int dir, boolean isAlive) {
             this.x = x;
             this.y = y;
-            this.id = id;
-            this.dir = dir;
+            this.id = id; //물고기 번호
+            this.dir = dir; //물고기 방향
             this.isAlive = isAlive;
         }
     }
@@ -49,8 +49,8 @@ public class BJ_19236_청소년상어 {
 
 	            for (int j = 0; j < 4; j++) {
 	                Fish f = new Fish();
-	                f.id = Integer.parseInt(st.nextToken());
-	                f.dir = Integer.parseInt(st.nextToken()) - 1;
+	                f.id = Integer.parseInt(st.nextToken()); //물고기 번호, 
+	                f.dir = Integer.parseInt(st.nextToken()) - 1; //방향
 	                f.x = i;
 	                f.y = j;
 	                
@@ -160,5 +160,4 @@ public class BJ_19236_청소년상어 {
         fishes.forEach(e -> temp.add(new Fish(e.x, e.y, e.id, e.dir, e.isAlive)));
         return temp;
     }
-
 }
