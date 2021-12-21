@@ -2,7 +2,7 @@ package study.a1111;
 
 import java.io.*;
 import java.util.*;
-
+//
 public class BJ_21611_마법사상어와블리자드 {
 	static int N, M, mid;
 	static int[][] map;
