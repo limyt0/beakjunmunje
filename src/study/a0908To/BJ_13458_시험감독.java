@@ -7,7 +7,7 @@ public class BJ_13458_시험감독 {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st;
+		StringTokenizer st; 
 		int N = Integer.parseInt(br.readLine()); //시험장 수
 		int [] arr = new int[N];//응시자 배열
 		st = new StringTokenizer(br.readLine(), " ");
