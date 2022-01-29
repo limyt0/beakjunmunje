@@ -9,7 +9,7 @@ public class BJ1193분수찾기 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int N = Integer.parseInt(br.readLine());
-		
+		 
 		System.out.println();
 		br.close();
 	}
