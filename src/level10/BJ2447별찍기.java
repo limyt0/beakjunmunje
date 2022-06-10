@@ -77,6 +77,6 @@ public class BJ2447별찍기 {
 	}	
 
 	
-	
+
 	
 }
