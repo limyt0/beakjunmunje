@@ -25,5 +25,6 @@ public class BJ2292벌집 {
 		}
 		System.out.println(result); 
 		br.close();
+		
 	}
 }
