@@ -62,7 +62,6 @@ import java.io.*;
 //	
 //}
 
-
 public class BJ2447별찍기 {
 
 	static char[][] arr;
@@ -77,6 +76,6 @@ public class BJ2447별찍기 {
 	}	
 
 	
-	
+
 	
 }
