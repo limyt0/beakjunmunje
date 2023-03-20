@@ -29,5 +29,4 @@ public class kakao2018비밀지도 {
 		  
 
 	}
-
 }
